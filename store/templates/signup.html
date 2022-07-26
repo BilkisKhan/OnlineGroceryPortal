@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+
+
+     function myFunction() {
+     
+      var x = document.getElementById('driver');
+      if (x.style.visibility === 'hidden') {
+        x.style.visibility = 'visible';
+      } else {
+        x.style.visibility = 'hidden';
+      }
+}
+
+</script>
+<div class="container mt-4">
+    
+    <div class="p-3 m-3">
+
+        
+        <div class="col-lg-5 rounded mx-auto border pt-4">
+            <div class="text-center col">
+            
+             <!--   <img
+                src="https://th.bing.com/th/id/Rd51d7c0fde6d96a31538a86cbd57f3c0?rik=%2fTJxRkU2V371QQ&riu=http%3a%2f%2ftechnologyend.com%2fwp-content%2fuploads%2f2015%2f11%2fwhy-shop-online.jpg&ehk=v1KiYT0i5U1ABCRueDSdLqnazh2BdlVD89Z4qXE0Kgs%3d&risl=&pid=ImgRaw" alt=""
+                class="" style="height: 150px;"> -->
+            <!-- <hr> -->
+            <hr>
+            </div>
+            <h3 class="alert alert-success rounded-pill" style="text-align:center">Create an Insta Food Account</h3>
+            <form action="/signup" method="POST">
+                
+                {% csrf_token %}
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <fieldset>
+                <div class="form-group">
+                    <label for="">User Type</label>
+                </div>
+
+                <!--<div class="form-group">
+                     <input type="radio" name="driver"
+                     id="driver" value="{{values.user_driver}}" class="form-control form-control-sm" 
+                     placeholder="">
+                     <label for="User Type">Driver</label><br>
+                </div> -->
+                </fieldset>
+
+
+                  
+                <div>
+                      <input type="radio" name="usertype" id="usertype" value="driver" checked onclick="myFunction()">
+                      <label for="driver">Driver</label>
+                </div>
+                <div>
+                      <input type="radio" name="usertype" id="usertype1" value="cust" onclick="myFunction()">
+                      <label for="cust">Customer</label>
+                </div>
+          
+                <br>
+
+                <!-- firstname -->
+                <div class="form-group">
+                    <label for="">First Name</label>
+                    <input type="text" name="firstname"
+                     id="" value="{{values.first_name}}" class="form-control form-control-sm" 
+                     placeholder="">
+                </div>
+
+                <!-- last name -->
+                <div class="form-group">
+                    <label for="">Last Name</label>
+                    <input type="text" name="lastname" 
+                    id="" value="{{values.last_name}}" class="form-control form-control-sm"
+                    >
+                </div>
+
+                <!-- phone -->
+                <div class="form-group">
+                    <label for="">Phone</label>
+                    <input type="text" name="phone" 
+                    id="" class="form-control form-control-sm"
+                    value="{{values.phone}}"
+                    placeholder="9999999999"
+                    >
+                </div>
+                <!-- email -->
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}" 
+                    class=" form-control-sm form-control" placeholder="abc@gmail.com">
+                </div>
+
+                <!-- password -->
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" 
+                    name="password" 
+                    id=""
+                     class="form-control form-control-sm">
+                </div>
+
+                <div class="form-group">
+                       <label for="">Address</label>
+                      <input type="street" 
+                             class="form-control-sm form-control" 
+                             id="" 
+                             placeholder="Street">
+  
+                      <input type="city" 
+                             class="form-control-sm form-control" 
+                             id="" 
+                             placeholder="City">
+  
+                      <input type="state" 
+                             class="form-control form-control-sm"
+                             id="" 
+                             placeholder="State">
+  
+                      <input type="zip" 
+                             class="form-control form-control-sm" 
+                             id="" 
+                             placeholder="Zip">
+  
+                </div>
+
+
+                <div class="form-group" id="driver">
+                    <label for="">Proof of Car Insurance</label>
+                    <input  type="file" name="carInsurance" id=""
+                    value="{{values.carInsurance}}" 
+                    class=" form-control-sm form-control">
+
+                    <label for="">Driver license Expiration date </label>
+                    <input  type="date" name="date" id=""
+                    value="{{values.date}}" 
+                    class=" form-control-sm form-control" >
+                </div>
+
+            <!--    <div class="form-group" id="driver2">
+                    <label for="">Driver license Expiration date </label>
+                    <input required type="date" name="date" id=""
+                    value="{{values.date}}" 
+                    class=" form-control-sm form-control" >
+                </div> -->
+
+                <!--Checkme button-->
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label d-grid gap-2" for="exampleCheck1">Check me out</label>
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-sm btn-success col-lg-12">Create an account</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

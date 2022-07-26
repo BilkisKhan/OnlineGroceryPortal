@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% load cart %}
+{% load custom_filter %}
+<!-- modal -->
+<style media="screen">
+  .success-page{
+  max-width:300px;
+  display:block;
+  margin: 0 auto;
+  text-align: center;
+      position: relative;
+    top: 50%;
+    transform: perspective(1px) translateY(50%)
+}
+.success-page img{
+  max-width:62px;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-view-orders{
+  display: block;
+  border:1px solid #ff6600;
+  width:100px;
+  margin: 0 auto;
+  margin-top: 45px;
+  padding: 10px;
+  color:#fff;
+  background-color:#ff6600;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+h2{
+  color:#0014ff;
+    margin-top: 25px;
+
+}
+a{
+  text-decoration: none;
+}
+</style>
+<div class="success-page" style="top:auto;">
+  <h2>Payment Successful !</h2>
+  <p>We are delighted to inform you that we received your payments</p>
+  <a style="text-decoration:none;" href="/orders" class="btn-view-orders">View Orders</a>
+  <a style="text-decoration:none;" href="/store">Continue Shopping</a>
+</div>
+<br><br><br><br>
+<br><br><br><br>
+{% endblock content %}
