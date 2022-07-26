@@ -23,7 +23,7 @@ The system is implemented using Python's web framework Django.
     Basic Django scaffolding (commands, templatetags, statics, media files, etc).
     onlineStore/settings.py for core settings.
 
-<h3>INSTALLED_APPS<h3>
+<h3>INSTALLED_APPS</h3>
     Within the newly created settings.py file is a configuration called INSTALLED_APPS which is a list of Django apps within a project. 
     Django comes with six built-in apps
     INSTALLED_APPS = [
